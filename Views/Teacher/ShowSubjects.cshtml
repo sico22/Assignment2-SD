@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Assignment2.DAL.Models.Subject>
+
+@{
+    ViewData["Title"] = "ShowSubjects";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>ShowSubjects</h1>
+
+<p>
+    <a asp-action="CreateSubject">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeacherId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeacherId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSubject", new { id=item.SubjectId }) |
+                @Html.ActionLink("Laboratories", "ShowLaboratories", new { id=item.SubjectId}) |
+                @Html.ActionLink("Delete", "DeleteSubject", new { id=item.SubjectId},new { onclick = "return confirm('Are you sure you want to delete this item?');" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

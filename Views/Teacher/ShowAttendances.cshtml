@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Assignment2.DAL.Models.Attendance>
+
+@{
+    ViewData["Title"] = "ShowAttendances";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>ShowAttendances</h1>
+
+<p>
+    <a asp-action="CreateAttendance">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.AttendanceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LaboratoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Attended)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttendanceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LaboratoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attended)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditAttendance", new { id=item.AttendanceId }) |
+                @Html.ActionLink("Delete", "DeleteAttendance", new { id=item.AttendanceId },new { onclick = "return confirm('Are you sure you want to delete this item?');"})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

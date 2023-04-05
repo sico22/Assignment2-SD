@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Assignment2.DAL.Models.Student>
+
+@{
+    ViewData["Title"] = "ShowStudents";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>ShowStudents</h1>
+
+<p>
+    <form method="post" asp-action="GenerateToken">
+    <button type="submit">Generate Token</button>
+    </form>
+
+    @if(ViewData["TokenString"] != null)
+        {
+            <label>@ViewData["TokenString"]</label>
+        }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GroupNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hobby)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupNr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hobby)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditStudent", new { id=item.StudentId }) |
+                @Html.ActionLink("Delete", "DeleteStudent", new { id=item.StudentId},new { onclick = "return confirm('Are you sure you want to delete this item?');" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

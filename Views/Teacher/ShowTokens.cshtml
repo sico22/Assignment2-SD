@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Assignment2.DAL.Models.Token>
+
+@{
+    ViewData["Title"] = "ShowTokens";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>ShowTokens</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TokenId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TokenString)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TokenId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TokenString)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

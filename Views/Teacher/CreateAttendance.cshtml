@@ -1,0 +1,36 @@
+﻿@model Assignment2.DAL.Models.Attendance
+
+@{
+    ViewData["Title"] = "CreateAttendance";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>CreateAttendance</h1>
+
+<h4>Attendance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateAttendance">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <input asp-for="StudentId" class="form-control" />
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attended" class="control-label"></label>
+                <input asp-for="Attended" class="form-control" />
+                <span asp-validation-for="Attended" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShowAttendances">Back to List</a>
+</div>
+

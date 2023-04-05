@@ -1,0 +1,46 @@
+﻿@model Assignment2.DAL.Models.Laboratory
+
+@{
+    ViewData["Title"] = "EditAssignment";
+    Layout = "~/Views/Shared/_LayoutTeacher.cshtml";
+}
+
+<h1>EditAssignment</h1>
+
+<h4>Laboratory</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAssignment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="LaboratoryId" class="control-label"></label>
+                <input asp-for="LaboratoryId" class="form-control" />
+                <span asp-validation-for="LaboratoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignmentName" class="control-label"></label>
+                <input asp-for="AssignmentName" class="form-control" />
+                <span asp-validation-for="AssignmentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignmentDl" class="control-label"></label>
+                <input asp-for="AssignmentDl" class="form-control" />
+                <span asp-validation-for="AssignmentDl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AssignmentDescription" class="control-label"></label>
+                <input asp-for="AssignmentDescription" class="form-control" />
+                <span asp-validation-for="AssignmentDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
